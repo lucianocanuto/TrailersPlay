@@ -53,7 +53,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         // Botão trailer
         binding.buttonTrailer.setOnClickListener {
-            val intent = Intent(this, TrailerPlayerActivity::class.java)
+            val intent = Intent(this, NewPlayerTrailerActivity::class.java)
             intent.putExtra("MOVIE_ID", movieId)
             startActivity(intent)
         }

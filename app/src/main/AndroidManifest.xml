@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrailersPlay">
         <activity
+            android:name=".ui.NewPlayerTrailerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.TrailerPlayerActivity"
             android:exported="false" />
         <activity

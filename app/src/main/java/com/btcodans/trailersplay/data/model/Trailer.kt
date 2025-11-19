@@ -4,5 +4,6 @@ data class Trailer(
 
     val key: String, // ID do YouTube
     val name: String,
-    val type: String
+    val type: String,
+    val site: String
 )
