@@ -2,6 +2,7 @@ package com.btcodans.trailersplay.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,6 +26,7 @@ class NewPlayerTrailerActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
+
         val movieId = intent.getIntExtra("MOVIE_ID",0)
         Log.d("movieId","$movieId")
 
@@ -44,7 +46,7 @@ class NewPlayerTrailerActivity : AppCompatActivity() {
                     })
 
                 } else {
-                    Log.d("Trailer", "Nenhum trailer encontardo")
+                    Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT).show()
                 }
             } catch (e: Exception){
                 Log.d("Trailer", "Erro ao buscar trailer: ${e.message}")
