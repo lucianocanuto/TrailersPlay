@@ -15,12 +15,13 @@ import kotlinx.coroutines.launch
 
 class TrailerPlayerActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTrailerPlayerBinding
+    private val binding by lazy {
+        ActivityTrailerPlayerBinding.inflate(layoutInflater)
+    }
     private val repository = MovieRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTrailerPlayerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         lifecycle.addObserver(binding.youtubePlayer)
