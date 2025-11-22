@@ -28,6 +28,11 @@ class MovieAdapter(private var movies: List<Movie>) :
 
     override fun getItemCount() = movies.size
 
+    fun filterList(filteredList: List<Movie>){
+        movies = filteredList
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
         val context = holder.itemView.context
@@ -67,5 +72,6 @@ class MovieAdapter(private var movies: List<Movie>) :
             intent.putExtra("RELEASE_DATE", releaseDateRaw)
             context.startActivity(intent)
         }
+
     }
 }

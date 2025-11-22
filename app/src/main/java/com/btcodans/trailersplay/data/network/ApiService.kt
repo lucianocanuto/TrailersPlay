@@ -19,4 +19,11 @@ interface ApiService {
         @Query("api_key") apiKey: String,
         @Query("language") language: String = "pt-BR"
     ): TrailerResponse
+
+    @GET("search/movie")
+    suspend fun searchMovies(
+        @Query("api_key") apiKey: String,
+        @Query("query") query: String
+    ): MovieResponse
+
 }

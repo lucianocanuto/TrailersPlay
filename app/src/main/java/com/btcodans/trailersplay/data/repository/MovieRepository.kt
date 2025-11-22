@@ -10,4 +10,6 @@ class MovieRepository {
     suspend fun getPopularMovies() = api.getPopularMovies(apiKey)
 
     suspend fun getMovieTrailers ( movieId: Int ) = api.getMovieTrailers(movieId,apiKey)
+    suspend fun searchMovies(query: String) = api.searchMovies(apiKey, query)
+
 }
