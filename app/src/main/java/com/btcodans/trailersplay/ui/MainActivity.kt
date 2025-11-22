@@ -1,5 +1,6 @@
 package com.btcodans.trailersplay.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,13 +29,16 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        val searchEditText = binding.searchView.findViewById<androidx.appcompat.widget.SearchView.SearchAutoComplete>(
+
+        searchBar()
+
+        /*val searchEditText = binding.searchView.findViewById<androidx.appcompat.widget.SearchView.SearchAutoComplete>(
             androidx.appcompat.R.id.search_src_text
         )
 
         searchEditText.setTextColor(android.graphics.Color.WHITE)
         searchEditText.setHintTextColor(0x99FFFFFF.toInt()) // dica mais visível
-        searchEditText.textSize = 18f // maior para dar destaque
+        searchEditText.textSize = 18f // maior para dar destaque*/
 
         setupRecyclerView()
         loadMovies()
@@ -56,6 +60,19 @@ class MainActivity : AppCompatActivity() {
             }
         )
 
+    }
+
+
+    @SuppressLint("RestrictedApi")
+    private fun searchBar() {
+        val searchEditText =
+            binding.searchView.findViewById<SearchView.SearchAutoComplete>(
+                androidx.appcompat.R.id.search_src_text
+            )
+
+        searchEditText.setTextColor(android.graphics.Color.WHITE)
+        searchEditText.setHintTextColor(0x99FFFFFF.toInt())
+        searchEditText.textSize = 18f
     }
 
     private fun setupRecyclerView() {
