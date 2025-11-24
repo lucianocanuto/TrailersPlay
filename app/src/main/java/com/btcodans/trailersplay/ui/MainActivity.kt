@@ -1,7 +1,10 @@
 package com.btcodans.trailersplay.ui
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -65,14 +68,20 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("RestrictedApi")
     private fun searchBar() {
-        val searchEditText =
-            binding.searchView.findViewById<SearchView.SearchAutoComplete>(
-                androidx.appcompat.R.id.search_src_text
-            )
+        val searchText = binding.searchView.findViewById<EditText>(
+            androidx.appcompat.R.id.search_src_text
+        )
 
-        searchEditText.setTextColor(android.graphics.Color.WHITE)
-        searchEditText.setHintTextColor(0x99FFFFFF.toInt())
-        searchEditText.textSize = 18f
+        searchText.setTextColor(Color.WHITE)
+        searchText.setHintTextColor(0x55FFFFFF)
+        searchText.textSize = 16f
+
+// ícone branco
+        val searchIcon = binding.searchView.findViewById<ImageView>(
+            androidx.appcompat.R.id.search_mag_icon
+        )
+        searchIcon.setColorFilter(Color.WHITE)
+
     }
 
     private fun setupRecyclerView() {
@@ -86,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 val response = repository.getPopularMovies()
                 fullList = response.results
 
-                // Volta para a MAIN THREAD para atualizar o RecyclerView
+                // Volta para a main thread para atualizar o RecyclerView
                 withContext(Dispatchers.Main) {
                     adapter.updateList(fullList)
                 }
